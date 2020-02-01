@@ -5,7 +5,7 @@ import sys
 import argparse
 import os
 from PIL import Image
-from scipy.misc import imresize
+# from scipy.misc import imresize # REMOVED from SciPy
 from preprocessing import load_image
 from params import *
 
@@ -34,8 +34,8 @@ def img_resize(img):
 
 def split_panels(img):
     h, w, _ = img.shape
-    num_vert_panels = h/224
-    num_hor_panels = w/224
+    num_vert_panels = int(h/224)
+    num_hor_panels = int(w/224)
     panels = []
     for i in range(num_vert_panels):
         for j in range(num_hor_panels):
@@ -44,8 +44,8 @@ def split_panels(img):
 
 def combine_panels(img, panels):
     h, w, _ = img.shape
-    num_vert_panels = h/224
-    num_hor_panels = w/224
+    num_vert_panels = int(h/224)
+    num_hor_panels = int(w/224)
     total = []
     p = 0
     for i in range(num_vert_panels):

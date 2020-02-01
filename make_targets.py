@@ -4,7 +4,8 @@ import sys
 import os
 from keras.preprocessing import image
 from bs4 import BeautifulSoup
-import scipy.misc
+#import scipy.misc
+import imageio
 from PIL import Image
 from params import *
 
@@ -49,4 +50,5 @@ if __name__=="__main__":
             raw_xml = f.read()
         boxes = decode_bndbox(raw_xml)
         target = make_target(img, boxes)
-        scipy.misc.imsave(TRG_PATH+i+'.png', target)
+        # scipy.misc.imsave(TRG_PATH+i+'.png', target) # DEPRECATED in newer SciPy versions
+        imageio.imwrite(TRG_PATH+i+'.png', target)

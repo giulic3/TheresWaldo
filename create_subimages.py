@@ -3,12 +3,12 @@ from params import *
 import matplotlib.pyplot as plt 
 
 def extract_224_sub_image(img, box):
-    wstart, wend, hstart,hend = box
-    i = img[wend-224:wstart+224,hend-224:hstart+224]
-    if i.shape[0]==0:
-        return img[wstart:wstart+225,hend-224:hstart+224]
-    else: 
-        return i
+	wstart, wend, hstart,hend = box
+	i = img[wend-224:wstart+224,hend-224:hstart+224]
+	if i.shape[0]==0:
+		return img[wstart:wstart+225,hend-224:hstart+224]
+	else: 
+		return i
 
 def find_box(label):
 	"""
@@ -22,10 +22,10 @@ def find_box(label):
 	return (wstart, wend, hstart, hend)
 
 if __name__=="__main__":
-    """
-    Creates waldo sub images/labels and saves arrays.
-    """
-	imgs = np.load('imgs.npy')
+	"""
+	Creates waldo sub images/labels and saves arrays.
+	"""
+	imgs = np.load('imgs.npy') # TODO These files are missing!
 	labels = np.load('labels.npy')
 	waldo_sub_imgs = []
 	waldo_sub_labels = []

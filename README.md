@@ -31,6 +31,10 @@ To create the binary labels:
 $ python make_targets.py
 ```
 
+```shell
+$ python preprocessing.py
+```
+
 The next step is to create the Waldo sub-images.
 
 ```shell
@@ -46,7 +50,7 @@ I didn't put together a script for training the model; training neural networks 
 To make predictions on new images:
 
 ```shell
-$ python predict.py image1.py image1.py --output_path /output/path
+$ python predict.py image1.jpg [image2.jpg image3.jpg ...] --output_path /output/path
 ```
 This will load weights from my model by default. Makes predictions and saves them as transparency masks overlaid on the original image. They'll be saved as `output_{i}.png` in the specified folder.
 
